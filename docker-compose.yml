@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  stable-diffusion-webui:
-    image: ashleykza/stable-diffusion-webui:latest
+  baksters-workshop:
+    image: ashleykza/baksters-workshop:latest
     deploy:
       resources:
         reservations:
@@ -13,11 +13,10 @@ services:
     volumes:
       - /workspace:/workspace
     ports:
-      - "3000:3001"
-      - "3010:3011"
-      - "3020:3021"
-      - "6006:6066"
-      - "8888:8888"
+      - "3010:3011"  # Kohya_ss
+      - "3020:3021"  # ComfyUI
+      - "6006:6066"  # Tensorboard
+      - "8888:8888"  # Jupyter Lab
     environment:
       JUPYTER_PASSWORD: "Jup1t3R!"
       ENABLE_TENSORBOARD: "1"
