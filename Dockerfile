@@ -1,37 +1,6 @@
-# Stage 1: Base Image with CUDA support
-FROM nvidia/cuda:12.4.0-runtime-ubuntu22.04 AS base
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    python3.10 \
-    python3.10-venv \
-    python3-pip \
-    git \
-    wget \
-    curl \
-    nginx \
-    openssh-server \
-    rsync \
-    jq \
-    vim \
-    zip \
-    unzip \
-    libgl1 \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    libgomp1 \
-    libgoogle-perftools-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set Python 3.10 as default
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 \
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
-
-# Create workspace directory
-RUN mkdir -p /workspace/logs /workspace/venvs
+# Stage 1: Base Image with A1111 pre-installed
+ARG BASE_IMAGE=ashleykza/a1111:1.10.1
+FROM ${BASE_IMAGE} AS base
 
 ARG INDEX_URL
 
