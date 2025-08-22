@@ -12,3 +12,7 @@ workspace:
     embeddings: models/embeddings
     hypernetworks: models/hypernetworks
     controlnet: models/controlnet
+    unet: models/unet
+    clip: models/clip
+    clip_vision: models/clip_vision
+    style_models: models/style_models

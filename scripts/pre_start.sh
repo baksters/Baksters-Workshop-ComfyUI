@@ -145,6 +145,13 @@ else
     echo "SYNC: Existing version is newer than the template version, not syncing!"
 fi
 
+echo "Downloading models, This may take a while..."
+chmod +x /download_models.sh && /download_models.sh
+echo
+
+echo "Downloading extensions..."
+
+
 # Start application manager
 cd /app-manager
 npm start > /workspace/logs/app-manager.log 2>&1 &
