@@ -123,7 +123,7 @@ sync_apps() {
 
 fix_venvs() {
     echo "VENV: Fixing ComfyUI venv..."
-    /fix_venv.sh /ComfyUI/venv /workspace/ComfyUI/venv
+    /fix_venv.sh /venv /workspace/ComfyUI/venv
 }
 
 if [ "$(printf '%s\n' "$EXISTING_VERSION" "$TEMPLATE_VERSION" | sort -V | head -n 1)" = "$EXISTING_VERSION" ]; then
@@ -145,11 +145,10 @@ else
     echo "SYNC: Existing version is newer than the template version, not syncing!"
 fi
 
+
 echo "Downloading models, This may take a while..."
 chmod +x /download_models.sh && /download_models.sh
 echo
-
-echo "Downloading extensions..."
 
 
 # Start application manager
